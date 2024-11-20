@@ -4,7 +4,7 @@ package L02_Stack;
 public class StackADT<E> implements AbstractStack<E> {
 
     // inner class Node for stack
-    private class Node<E> {
+    private class Node {
 
         // data fields
         private E element; // element of node
@@ -28,7 +28,7 @@ public class StackADT<E> implements AbstractStack<E> {
 
     @Override
     public void push ( E element ) { // pushes an element onto the stack
-        Node<E> newNode = new Node<>( element );
+        Node newNode = new Node( element );
         newNode.next = this.top;
         this.top = newNode;
         this.size++;
@@ -42,9 +42,9 @@ public class StackADT<E> implements AbstractStack<E> {
             throw new IllegalStateException("Stack is currently empty.");
         }
 
-        E oldElement = (E) this.top.element; // cast to E type to avoid compiler error
+        E oldElement = this.top.element; // cast to E type to avoid compiler error
 
-        Node<E> tempNode = this.top; // temp node to hold removed node
+        Node tempNode = this.top; // temp node to hold removed node
         this.top = this.top.next; // top is now the next node
 
         tempNode.next = null; // set temp node to null to avoid memory leak
@@ -61,7 +61,7 @@ public class StackADT<E> implements AbstractStack<E> {
             throw new IllegalStateException("Stack is currently empty.");
         }
 
-        return (E) this.top.element; // cast to E type to avoid compiler error
+        return this.top.element; // cast to E type to avoid compiler error
     }
 
     @Override
