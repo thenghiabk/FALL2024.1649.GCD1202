@@ -1,0 +1,89 @@
+package L02_Stack;
+
+// Stack ADT implementation using linked list structure
+public class StackADT<E> implements AbstractStack<E> {
+
+    // inner class Node for stack
+    private class Node<E> {
+
+        // data fields
+        private E element; // element of node
+        private Node next; // pointer to next node
+
+        // constructor with initial element
+        public Node ( E initialElement ) {
+            this.element = initialElement;
+            this.next = null;
+        }
+    }
+
+    private Node top; // top of stack linked list structure pointer to first node
+    private int size; // size of stack
+
+    // constructor for stack ADT object initializing top and size
+    public StackADT(){
+        this.top = null; // stack is empty by default
+        this.size = 0;
+    }
+
+    @Override
+    public void push ( E element ) { // pushes an element onto the stack
+        Node<E> newNode = new Node<>( element );
+        newNode.next = this.top;
+        this.top = newNode;
+        this.size++;
+    }
+
+    @Override
+    public E pop () { // pops the top element from the stack
+
+        // check if stack is empty
+        if(this.top == null){
+            throw new IllegalStateException("Stack is currently empty.");
+        }
+
+        E oldElement = (E) this.top.element; // cast to E type to avoid compiler error
+
+        Node<E> tempNode = this.top; // temp node to hold removed node
+        this.top = this.top.next; // top is now the next node
+
+        tempNode.next = null; // set temp node to null to avoid memory leak
+        this.size--; // decrement size of stack
+
+        return oldElement; // return removed element
+    }
+
+    @Override
+    public E peek () { // peeks at the top element
+
+        // check if stack is empty
+        if(this.top == null){
+            throw new IllegalStateException("Stack is currently empty.");
+        }
+
+        return (E) this.top.element; // cast to E type to avoid compiler error
+    }
+
+    @Override
+    public int size () { // gets the size of the stack
+        return this.size;
+    }
+
+    @Override
+    public boolean isEmpty () { // checks if the stack is empty
+        if(this.top == null && this.size == 0){ // stack is empty if top is null and size is 0
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public String toString() { // returns a string representation of the stack elements
+        StringBuilder sb = new StringBuilder(); // initialize string builder to build string
+
+        // TODO: implement toString method here to return a string representation of the stack
+
+        return sb.toString(); // return string representation of stack
+    }
+}
