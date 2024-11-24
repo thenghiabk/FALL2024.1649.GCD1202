@@ -38,11 +38,11 @@ public class StackADT<E> implements AbstractStack<E> {
     public E pop () { // pops the top element from the stack
 
         // check if stack is empty
-        if(this.top == null){
+        if (this.top == null){
             throw new IllegalStateException("Stack is currently empty.");
         }
 
-        E oldElement = this.top.element; // cast to E type to avoid compiler error
+        E oldElement = this.top.element; // store removed element
 
         Node tempNode = this.top; // temp node to hold removed node
         this.top = this.top.next; // top is now the next node
@@ -71,7 +71,7 @@ public class StackADT<E> implements AbstractStack<E> {
 
     @Override
     public boolean isEmpty () { // checks if the stack is empty
-        if(this.top == null && this.size == 0){ // stack is empty if top is null and size is 0
+        if (this.top == null && this.size == 0){ // stack is empty if top is null and size is 0
             return true;
         }
 
@@ -81,9 +81,19 @@ public class StackADT<E> implements AbstractStack<E> {
     @Override
     public String toString() { // returns a string representation of the stack elements
         StringBuilder sb = new StringBuilder(); // initialize string builder to build string
+        sb.append( "[" );
 
-        // TODO: implement toString method here to return a string representation of the stack
+        Node tempNode = this.top; // temp node to iterate through stack
 
+        while(tempNode != null){
+            sb.append( tempNode.element ); // add element to string
+            if(tempNode.next != null){ // if next node is not null
+                sb.append( ", " ); // add comma
+            }
+            tempNode = tempNode.next; // move to next node
+        }
+
+        sb.append( "]" );
         return sb.toString(); // return string representation of stack
     }
 }

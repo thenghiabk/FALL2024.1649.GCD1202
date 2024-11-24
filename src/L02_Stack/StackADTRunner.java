@@ -8,7 +8,7 @@ public class StackADTRunner {
         myIntStackADT.push(30);
         myIntStackADT.push(40);
 
-        System.out.println(myIntStackADT);
+        System.out.println(myIntStackADT); // [40, 30, 20, 10]
 
         System.out.println(myIntStackADT.peek()); // 40
 

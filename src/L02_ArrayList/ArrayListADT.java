@@ -143,7 +143,7 @@ public class ArrayListADT<E> implements AbstractArrayList<E> {
         StringBuilder sb = new StringBuilder();
         sb.append( "[" );
 
-        for ( int i = 0; i < size; i++ ) {
+        for ( int i = 0; i < this.size; i++ ) {
             sb.append( this.elements[i] );
             if (i < this.size - 1){
                 sb.append( ", " );
