@@ -16,6 +16,10 @@ public class Customer {
     }
 
     // Methods
+    public String getName(){
+        return this.name;
+    }
+
     public String getCustomerDetail(){
         return "[ID: " + this.id + ", Name: " + this.name
                 + ", Account Number: " + this.accountNumber + ", Balance: " + this.balance + "]";
