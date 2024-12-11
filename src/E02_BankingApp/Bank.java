@@ -4,11 +4,13 @@ public class Bank {
     // Attributes
     private ArrayListADT<Customer> customerList;
     private QueueADT<Customer> customerQueue;
+    private StackADT<String> transactionHistory;
 
     // Constructor
     public Bank() {
         this.customerList = new ArrayListADT<Customer>();
         this.customerQueue = new QueueADT<Customer>();
+        this.transactionHistory = new StackADT<String>();
 
         System.out.println("A bank has been initialized.");
     }
@@ -21,6 +23,7 @@ public class Bank {
 
     public void addNewCustomer(Customer newCustomer){
         customerList.add(newCustomer);
+        transactionHistory.push( newCustomer.getName() + " has been added to the bank.");
         System.out.println(newCustomer.getName() + " has been added to the bank.");
     }
 
@@ -33,6 +36,10 @@ public class Bank {
 
     public void getAllCustomersInQueue () {
         System.out.println(customerQueue);
+    }
+
+    public void getTransactionHistory () {
+        System.out.println(transactionHistory);
     }
 }
 
@@ -50,5 +57,7 @@ class BankRunner{
         bank.addCustomerToQueue( new Customer("C006", "Lily", 123459, 1000.00) );
 
         bank.getAllCustomersInQueue();
+
+        bank.getTransactionHistory();
     }
 }
