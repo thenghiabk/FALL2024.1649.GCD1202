@@ -10,8 +10,9 @@ import java.lang.*;
 class ActivitySelection {
     // Prints a maximum set of activities that can be done
     // by a single person, one at a time.
-    public static void selectActivities( int s[], int f[],
-                                         int n ) {
+    public static void selectActivities( int s[], int f[]) {
+
+        int n = s.length;
         int i, j;
 
         System.out.println(
@@ -38,9 +39,9 @@ class ActivitySelectionTest {
     public static void main( String[] args ) {
         int start[] = { 1, 3, 0, 5, 8, 5 };
         int finish[] = { 2, 4, 6, 7, 9, 9 };
-        int n = start.length;
+
 
         // Function call
-        ActivitySelection.selectActivities( start, finish, n );
+        ActivitySelection.selectActivities( start, finish );
     }
 }
