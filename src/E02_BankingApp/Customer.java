@@ -60,6 +60,6 @@ class CustomerRunner{
         System.out.println(customer.getCustomerDetail());
 
         //customer.deposit( -100 );
-        customer.withdraw( 2000 );
+        //customer.withdraw( 2000 );
     }
 }
