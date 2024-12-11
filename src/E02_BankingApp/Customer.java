@@ -50,6 +50,11 @@ public class Customer {
         System.out.println(name + "'s balance after withdraw: " + this.balance);
     }
 
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
 }
 
 class CustomerRunner{
