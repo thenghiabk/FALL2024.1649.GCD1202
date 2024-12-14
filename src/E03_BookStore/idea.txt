@@ -1,0 +1,19 @@
+Book
+	- id : string / int
+	- title : string
+	- author : string
+	- year : string
+	- price : double
+	- isbn : string
+
+Order
+	- id : string / int
+	- customer name : string
+	- customer address : string
+	- ordered products (sorted) : ArrayList<Book, qty>
+	- status : string
+
+BookStore
+	- orders : Queue<Order>
+	- transaction history : Stack<String>
+	- cart : ArrayList<Book, qty>
